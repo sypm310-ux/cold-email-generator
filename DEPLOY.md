@@ -10,7 +10,7 @@ You can host this app for free and get a public URL. Pick one of the options bel
 
 1. **Push this project to GitHub**  
    - Create a new repo, then:
-   - `git init && git add . && git commit -m "Cold email generator" && git remote add origin <your-repo-url> && git push -u origin main`
+   - `git init && git add . && git commit -m "Cold email generator" && git remote add origin https://github.com/spm310-ux/cold-email-generator.git && git branch -M main && git push -u origin main`
 
 2. **Sign up at [render.com](https://render.com)** (free).
 

@@ -55,17 +55,15 @@ GitHub will show you "…or push an existing repository from the command line." 
 **If this is the first time** (no remote yet):
 
 ```bash
-git remote add origin https://github.com/YOUR_USERNAME/cold-email-generator.git
+git remote add origin https://github.com/spm310-ux/cold-email-generator.git
 git branch -M main
 git push -u origin main
 ```
 
-Replace `YOUR_USERNAME` with your GitHub username (e.g. `sypm310-ux`).
-
 **If you already added `origin` before** (e.g. ran the script twice):
 
 ```bash
-git remote set-url origin https://github.com/YOUR_USERNAME/cold-email-generator.git
+git remote set-url origin https://github.com/spm310-ux/cold-email-generator.git
 git branch -M main
 git push -u origin main
 ```
