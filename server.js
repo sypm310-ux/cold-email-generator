@@ -12,8 +12,8 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const apiKey = process.env.GEMINI_API_KEY || "";
-const ai = new GoogleGenAI({ apiKey });
+const apiKey = (process.env.GEMINI_API_KEY || "").trim();
+const ai = apiKey ? new GoogleGenAI({ apiKey }) : null;
 
 let toneProfile = "";
 
@@ -49,6 +49,7 @@ async function generateEmail(systemPrompt, userPrompt) {
     : "";
 
   const fullPrompt = `${systemPrompt}${toneSnippet}\n\n---\n\n${userPrompt}`;
+  if (!ai) throw new Error("GEMINI_API_KEY is not configured.");
   const response = await ai.models.generateContent({
     model: "gemini-2.5-flash",
     contents: fullPrompt,
@@ -83,6 +84,7 @@ Write the profile in second person, as instructions to a writer (\"you\"). Keep 
 EXAMPLE EMAILS (verbatim, in chronological order):
 ${emailsText}`;
 
+  if (!ai) throw new Error("GEMINI_API_KEY is not configured.");
   const response = await ai.models.generateContent({
     model: "gemini-2.5-flash",
     contents: `${systemPrompt}\n\n---\n\n${userPrompt}`,
@@ -329,4 +331,7 @@ if (isProduction) {
 
 app.listen(PORT, () => {
   console.log(isProduction ? `Server running on port ${PORT}` : `Server running at http://localhost:${PORT}`);
+  if (!apiKey) {
+    console.warn("GEMINI_API_KEY is not set. Set it in Render → Environment to enable email generation.");
+  }
 });
