@@ -1,0 +1,54 @@
+:root {
+  --bg: #111210;
+  --surface: #191a18;
+  --surface-2: #1f2020;
+  --border: rgba(255, 255, 255, 0.07);
+  --border-hover: rgba(255, 255, 255, 0.15);
+  --text: #e2ddd6;
+  --text-dim: rgba(226, 221, 214, 0.65);
+  --text-muted: rgba(226, 221, 214, 0.4);
+  --gold: #c9a96e;
+  --gold-dim: rgba(201, 169, 110, 0.15);
+  --gold-border: rgba(201, 169, 110, 0.3);
+  --green: #4caf82;
+  --radius: 12px;
+  --font-sans: 'IBM Plex Sans', 'Segoe UI', sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    'Liberation Mono', 'Courier New', monospace;
+  --font-serif: 'Lora', 'Georgia', serif;
+
+  /* Legacy aliases */
+  --muted: var(--text-muted);
+  --accent: var(--gold);
+  --accent-dim: var(--gold-dim);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  height: 100vh;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+}
